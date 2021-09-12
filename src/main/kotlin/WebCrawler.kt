@@ -11,8 +11,6 @@ class WebCrawler(val parser: PageParser, val persistence: Persistence) {
 
         while (linksToSearch.isNotEmpty()) {
             val linkToSearch = linksToSearch.removeFirst()
-//            println("Size of links to search: -------------------------------------------- ${linksToSearch.size}")
-//            println("Pages visited: ====================================================== ${visitedLinks.size}")
             val links = parser.getLinks(linkToSearch)
             persistence.saveLink(linkToSearch)
             visitedLinks.add(linkToSearch)
